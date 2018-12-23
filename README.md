@@ -23,7 +23,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
 This project uses `Incomming Webhooks` from Slack, getting a `Slack` token is quite easy, you just need to create a new Slack App and add `Incomming Webhook` feature to your App (check `Add features and functionality`). For more information just follow this link https://api.slack.com/incoming-webhooks
 
 ### Add Slack token and Company info
-[Serverless Framework](https://serverless.com) provides us a way to add `environmental variables` to the project and they are set in [serverless.yml](https://serverless.com) file:
+[Serverless Framework](https://serverless.com) provides us a way to add `environmental variables` to the project and they are set in [serverless.yml](serverless.yml) file:
 
 ```yml
   environment:
