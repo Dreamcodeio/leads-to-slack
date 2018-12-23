@@ -3,9 +3,9 @@ provider:
   name: aws
   runtime: nodejs8.10
   environment:
-    SLACK_WEBHOOK: ${ssm:SLACK_WEBHOOK}
-    CAMPANY_LOGO: ${ssm:CAMPANY_LOGO}
-    CAMPANY_WEBSITE: ${ssm:CAMPANY_WEBSITE}
+    SLACK_WEBHOOK_URL: ${ssm:SLACK_WEBHOOK_URL}
+    CAMPANY_LOGO_URL: ${ssm:CAMPANY_LOGO_URL}
+    CAMPANY_WEBSITE_URL: Dreamcode.io  #${ssm:CAMPANY_WEBSITE_URL}
 functions:
   sendLead:
     handler: handler.sendLead
@@ -16,3 +16,4 @@ functions:
           cors: true
 plugins:
   - serverless-plugin-typescript
+  - serverless-offline

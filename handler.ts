@@ -1,15 +1,14 @@
 import { APIGatewayEvent } from "aws-lambda";
 import { IncomingWebhook } from "@slack/client";
 
-const SLACK_WEBHOOK = process.env.SLACK_WEBHOOK;
-const CAMPANY_LOGO = process.env.CAMPANY_LOGO;
-const CAMPANY_WEBSITE = process.env.CAMPANY_WEBSITE;
+const SLACK_WEBHOOK = process.env.SLACK_WEBHOOK_URL;
+const CAMPANY_LOGO = process.env.CAMPANY_LOGO_URL;
+const CAMPANY_WEBSITE = process.env.CAMPANY_WEBSITE_URL;
 const LEAD_DETAILS = "Lead Details";
 
-const webhook = new IncomingWebhook(SLACK_WEBHOOK);
-
 export async function sendLead(event: APIGatewayEvent) {
-  console.log(JSON.stringify(event));
+  if (SLACK_WEBHOOK === undefined || event.body === null) return;
+  const webhook = new IncomingWebhook(SLACK_WEBHOOK);
   const leadBody = JSON.parse(event.body);
   await webhook.send({
     attachments: [
